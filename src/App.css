@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  height: 100%;
+}
+.header{
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: cornflowerblue;
+}
+.headerContent{
+  display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 30px;
+    color: white;
+}
+
+.content{
+  background-color: aliceblue;
+  height: 100%;
+}
+
+html, body{
+  height: 100%;
+  position: relative;
+}
+
+#root{
+  height: 100%;
+}
+
+.username{
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 30%;
+}
+
+.password{
+  margin-bottom: 20px;
+  width: 30%;
+}
+
+.submitBtn{
+  width: 30%;
+}

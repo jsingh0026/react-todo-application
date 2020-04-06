@@ -1,0 +1,48 @@
+.task{
+    margin: 5px auto;
+    width: 54%;
+    height: 40px;
+    border-radius: 5px;
+    line-height: 35px;
+    color: white;
+    background-color: lightgray;
+}
+
+.task p{
+    position: relative;
+}
+
+.task span{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color:red
+}
+
+.task p input {
+    background-color: transparent;
+    border: 0;
+    color: gray;
+    font-size: 18px;
+    padding-right: 57%;
+    padding-left: 10px;
+}
+
+.task p input:focus{
+    outline: none;
+}
+
+.checkIconActive{
+    color: limegreen;
+    cursor: pointer;
+}
+
+.checkIcon{
+    cursor: pointer;
+}
+
+.btn-warning{
+    position: absolute;
+    margin: 35px;
+    margin-left: 245px;
+}
