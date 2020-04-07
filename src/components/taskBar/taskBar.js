@@ -23,11 +23,12 @@ export default class ListTasks extends React.Component{
             config,
             endpoint
         }
-        this.componentDidMount = this.componentDidMount.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.updateTask = this.updateTask.bind(this);
     }
 
     componentDidMount() {
-        Axios.get(this.state.endpoint+`/tasks`,this.state.config).then(res => {
+        Axios.get(this.state.endpoint+`/tasks`,this.state.config).then().then(res => {
           this.setState({
             tasks: res.data.data
           });
@@ -59,19 +60,19 @@ export default class ListTasks extends React.Component{
                 </header>
                 <div className="content">
                 <div>
-                    <TaskInput onAddTask={this.componentDidMount} />
+                    <TaskInput onAddTask={()=>this.componentDidMount} />
                     {this.state.tasks.map(task => (
-                        <div className="task" key={task.id}>
+                        <div className="task" key={task._id}>
                             <p>
                                 <FontAwesomeIcon className={`${task.status ? 'checkIconActive' : 'checkIcon'}`} icon={faCheckCircle}
-                                    onClick={() => { this.updateTask(task.id, task.status, 'status') }} />
-                                <input type="text" name="task" id={task.id}
+                                    onClick={() => { this.updateTask(task._id, task.status, 'status') }} />
+                                <input type="text" name="task" id={task._id}
                                     value={task.task}
-                                    onChange={(e) => this.updateTask(task.id, e.target.value, e.target.name)}
+                                    onChange={(e) => this.updateTask(task._id, e.target.value, e.target.name)}
                                 />
                                 <span>
                                     <FontAwesomeIcon icon={faTrash}
-                                        onClick={() => { this.handleDelete(task.id) }}
+                                        onClick={() => { this.handleDelete(task._id) }}
                                     />
                                 </span>
                             </p>

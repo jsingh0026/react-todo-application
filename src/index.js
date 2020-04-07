@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Route,Redirect , BrowserRouter as Router} from 'react-router-dom';
+import { Route, BrowserRouter as Router} from 'react-router-dom';
 import Login from './components/login/login';
 import Logout from './components/logout/logout';
 import ListTasks from './components/taskBar/taskBar';
@@ -9,7 +9,6 @@ import * as serviceWorker from './serviceWorker';
 
 const routing = (
   <Router>
-      <Redirect to="/login" />
       <Route path="/login" component = {Login} />
       <Route path="/tasks" component = {ListTasks} />
       <Route path="/logout" component = {Logout} />
