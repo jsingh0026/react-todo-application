@@ -37,8 +37,8 @@ export default class TaskInput extends React.Component{
                 this.setState({
                     task:''
                 })
-            this.props.onAddTask();
             }
+            this.props.onAddTask();
         })
       }  
 
