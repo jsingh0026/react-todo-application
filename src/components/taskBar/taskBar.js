@@ -23,12 +23,11 @@ export default class ListTasks extends React.Component{
             config,
             endpoint
         }
-        this.handleDelete = this.handleDelete.bind(this);
-        this.updateTask = this.updateTask.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
     }
 
     componentDidMount() {
-        Axios.get(this.state.endpoint+`/tasks`,this.state.config).then().then(res => {
+        Axios.get(this.state.endpoint+`/tasks`,this.state.config).then(res => {
           this.setState({
             tasks: res.data.data
           });
@@ -60,7 +59,7 @@ export default class ListTasks extends React.Component{
                 </header>
                 <div className="content">
                 <div>
-                    <TaskInput onAddTask={()=>this.componentDidMount} />
+                    <TaskInput onAddTask={this.componentDidMount} />
                     {this.state.tasks.map(task => (
                         <div className="task" key={task._id}>
                             <p>

@@ -31,15 +31,15 @@ export default class TaskInput extends React.Component{
         const newTask = {
           task: this.state.task
         };
+        if(this.state.task!==""){
         Axios.post(this.state.endpoint+`/tasks`, newTask, this.state.config)
         .then(res =>{
-            if(this.state.task!==""){
-                this.setState({
-                    task:''
-                })
-            }
             this.props.onAddTask();
         })
+            this.setState({
+                task:''
+            })
+        }
       }  
 
     render(){
