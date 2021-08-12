@@ -17,18 +17,6 @@ jobs:
           root: .
           paths:
             - .
-  test:
-    machine:
-      image: ubuntu-2004:202010-01
-    steps:
-      - attach_workspace:
-          at: .
-      - checkout
-      - run: npm run test
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
   deploy:
     machine:
         image: ubuntu-2004:202010-01
@@ -43,9 +31,6 @@ workflows:
   build_test_deploy:
     jobs:
       - build
-      - test:
-          requires:
-            - build
       - deploy:
           requires:
-            - test
+            - build
